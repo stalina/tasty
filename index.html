@@ -8,8 +8,42 @@
   <body>
     <h1>Tasty</h1>
 
-    <div>Our first tasty App.</div>
+    <div id="form">
+        <span>Script to execute :</span>
+        <textarea id="scriptToExecute">
+driver.get('http://www.google.com/ncr');
+driver.findElement(By.name('q')).sendKeys('webdriver');
+driver.findElement(By.name('btnG')).click();
+driver.wait(until.titleIs('webdriver - Google Search'), 10000);
+driver.quit();
+        </textarea>
+        <a id="startDriver" href="#">Start</a>
+        <a id="executeScript" href="#">Execute</a>
+        <a id="stopDriver" href="#">Stop</a>
+    </div>
 
     <a id="close" href="javascript:window.close()">Close this Window</a>
   </body>
+
+  <script type="text/javascript">
+        var engine = require('./app/tasty-engine');
+
+        const startBtn = document.getElementById('startDriver');
+        startBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            engine.start();
+        });
+
+        const stopBtn = document.getElementById('stopDriver');
+        stopBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            engine.stop();
+        });
+
+        const executeBtn = document.getElementById('executeScript');
+        executeBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            engine.execute(document.getElementById('scriptToExecute').value);
+        });
+    </script>
 </html>
