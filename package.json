@@ -1,0 +1,23 @@
+{
+  "name": "tasty",
+  "version": "0.0.1",
+  "description": "Application test tool made natural",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stalina/tasty.git"
+  },
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/stalina/tasty/issues"
+  },
+  "homepage": "https://github.com/stalina/tasty#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^1.0.1",
+    "selenium-webdriver": "^2.53.2"
+  }
+}

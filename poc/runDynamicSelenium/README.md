@@ -1,4 +1,4 @@
-# tasty - POC run Dynamic Selenium
+# Tasty - POC run Dynamic Selenium
 
 Prove how to run dynamic line of selenium code (webdriverJs)
 
