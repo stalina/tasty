@@ -18,6 +18,14 @@
   "homepage": "https://github.com/stalina/tasty#readme",
   "devDependencies": {
     "electron-prebuilt": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-run-electron": "^1.2.2",
+    "i": "^0.3.5",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "npm": "^3.9.0",
     "selenium-webdriver": "^2.53.2"
   }
 }
