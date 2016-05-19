@@ -18,6 +18,10 @@ NodeJs is installed
 
 `npm start`
 
+OR
+
+`gulp`
+
 ## Debug
 
 `npm run dev`
