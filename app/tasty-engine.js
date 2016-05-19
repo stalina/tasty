@@ -8,15 +8,15 @@ exports.start = function start() {
     driver = new webdriver.Builder().
         withCapabilities(webdriver.Capabilities.chrome()).
         build();
-}
+};
 
 exports.stop = function stop() {
     driver.quit();
-}
+};
 
 exports.execute = function execute(codeToExecute) {
     eval(codeToExecute);
-}
+};
 
     //eval(executeString);
 
