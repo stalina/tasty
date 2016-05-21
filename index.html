@@ -11,15 +11,22 @@
     <div id="form">
         <span>Script to execute :</span>
         <textarea id="scriptToExecute">
-driver.get('http://www.google.com/ncr');
-driver.findElement(By.name('q')).sendKeys('webdriver');
-driver.findElement(By.name('btnG')).click();
-driver.wait(until.titleIs('webdriver - Google Search'), 10000);
-driver.quit();
+GO_TO('http://www.google.com/ncr');
+WRITE_INTO('webdriver','q');
+CLICK_OF('btnG');
+VERIFIY_TITLE('webdriver - Google Search');
         </textarea>
-        <a id="startDriver" href="#">Start</a>
-        <a id="executeScript" href="#">Execute</a>
-        <a id="stopDriver" href="#">Stop</a>
+        <span>Choose your browser :</span>
+        <select id="browser">
+            <option value="chrome">chrome</option>
+            <option value="firefox">firefox</option>
+        </select>
+
+        <div>
+            <a id="startDriver" href="#">Start</a>
+            <a id="executeScript" href="#">Execute</a>
+            <a id="stopDriver" href="#">Stop</a>
+        </div>
     </div>
 
     <a id="close" href="javascript:window.close()">Close this Window</a>
@@ -31,7 +38,7 @@ driver.quit();
         const startBtn = document.getElementById('startDriver');
         startBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            engine.start();
+            engine.start(document.getElementById('browser').value);
         });
 
         const stopBtn = document.getElementById('stopDriver');

@@ -1,13 +1,14 @@
+require('chromedriver');
+
 var webdriver = require('selenium-webdriver'),
-     By = webdriver.By,
-     until = webdriver.until;
+    By = webdriver.By,
+    until = webdriver.until,
+    driver;
 
-var driver;
-
-exports.start = function start() {
+exports.start = function start(browser) {
     driver = new webdriver.Builder().
-        withCapabilities(webdriver.Capabilities.chrome()).
-        build();
+    forBrowser(browser).
+    build();
 };
 
 exports.stop = function stop() {
@@ -15,15 +16,32 @@ exports.stop = function stop() {
 };
 
 exports.execute = function execute(codeToExecute) {
-    eval(codeToExecute);
+    try {
+        eval(codeToExecute);
+    }
+    catch (exception) {
+        console.log(exception.message);
+    }
 };
 
-    //eval(executeString);
+function GO_TO(url){
+    driver.get(url);
+}
 
+function CLICK_OF(field){
+    driver.findElement(By.name(field)).click();
+}
 
-//driver.get('http://www.wingify.com');
-/*driver.get('http://www.google.com/ncr');
-driver.findElement(By.name('q')).sendKeys('webdriver');
-driver.findElement(By.name('btnG')).click();
-driver.wait(until.titleIs('webdriver - Google Search'), 10000);
-driver.quit();*/
+function WRITE_INTO(text,field){
+    driver.findElement(By.name(field)).sendKeys(text);
+}
+
+function VERIFIY_TITLE(title){
+    driver.wait(until.titleIs(title), 10000).catch(function(exception) {
+        alert(exception.message);
+    });
+}
+
+exports.setDriver=function(mockDriver){
+    driver=mockDriver;
+};
