@@ -4,11 +4,16 @@ const stylish = require('jshint-stylish');
 const runElectron = require("gulp-run-electron");
 const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
+const reactify = require('reactify');
+const browserify =require('browserify');
+const package = require('./package.json');
+const source = require('vinyl-source-stream');
 
-livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload');
+
 
 gulp.task('quality', function() {
-    return gulp.src('./app/*.js')
+    return gulp.src(package.paths.js)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -25,9 +30,18 @@ gulp.task('run', function() {
   return gulp.src(".").pipe(runElectron(["--debug"]));
 });
 
-
 gulp.task('watch', function () {
-    gulp.watch("app/*",  [runElectron.rerun]);
+    gulp.watch("app/**/*",  ['js',runElectron.rerun]);
 });
 
-gulp.task('default', ['quality','specs','watch','run']);
+gulp.task('js', function(){
+    browserify(package.paths.app)
+        .ignore('selenium-webdriver')
+        .transform(reactify)
+        .bundle()
+        .pipe(source(package.dest.app))
+        .pipe(gulp.dest(package.dest.dist));
+});
+
+
+gulp.task('default', ['quality','js','specs','watch','run']);

@@ -34,6 +34,27 @@
     "phantomjs-prebuilt": "^2.1.7",
     "requirejs": "^2.2.0",
     "selenium-webdriver": "^2.53.2",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "bufferutil": "^1.2.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-select": "^1.0.0-beta13",
+    "reactify": "^1.1.1",
+    "utf-8-validate": "^1.2.1"
+  },
+  "paths": {
+    "js": "./app/**/*.js",
+    "jsx": "./app/**/*.jsx",
+    "app": "./app/main.jsx"
+  },
+  "dest": {
+    "app": "app.js",
+    "dist": "dist"
   }
 }

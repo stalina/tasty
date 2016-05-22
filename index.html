@@ -1,56 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8">
-      <title>Tasty - Application test tool made natural</title>
-      <link rel="stylesheet" href="assets/css/tasty.css">
-  </head>
-  <body>
-    <h1>Tasty</h1>
+<head>
+    <meta charset="UTF-8">
+    <title>Tasty - Application test tool made natural</title>
+    <link rel="stylesheet" href="assets/css/tasty.css">
+    <link rel="stylesheet" href="node_modules/react-select/dist/react-select.min.css">
+</head>
+<body>
+<div id="content"></div>
 
-    <div id="form">
-        <span>Script to execute :</span>
-        <textarea id="scriptToExecute">
-GO_TO('http://www.google.com/ncr');
-WRITE_INTO('webdriver','q');
-CLICK_OF('btnG');
-VERIFIY_TITLE('webdriver - Google Search');
-        </textarea>
-        <span>Choose your browser :</span>
-        <select id="browser">
-            <option value="chrome">chrome</option>
-            <option value="firefox">firefox</option>
-        </select>
+</body>
+<script src="dist/app.js"></script>
 
-        <div>
-            <a id="startDriver" href="#">Start</a>
-            <a id="executeScript" href="#">Execute</a>
-            <a id="stopDriver" href="#">Stop</a>
-        </div>
-    </div>
-
-    <a id="close" href="javascript:window.close()">Close this Window</a>
-  </body>
-
-  <script type="text/javascript">
-        var engine = require('./app/tasty-engine');
-
-        const startBtn = document.getElementById('startDriver');
-        startBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            engine.init(document.getElementById('browser').value);
-        });
-
-        const stopBtn = document.getElementById('stopDriver');
-        stopBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            engine.stop();
-        });
-
-        const executeBtn = document.getElementById('executeScript');
-        executeBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-            engine.execute(document.getElementById('scriptToExecute').value);
-        });
-    </script>
 </html>
