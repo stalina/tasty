@@ -4,7 +4,6 @@ const stylish = require('jshint-stylish');
 const runElectron = require("gulp-run-electron");
 const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
-var Server = require('karma').Server;
 
 livereload = require('gulp-livereload');
 

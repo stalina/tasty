@@ -38,7 +38,7 @@ VERIFIY_TITLE('webdriver - Google Search');
         const startBtn = document.getElementById('startDriver');
         startBtn.addEventListener('click', function (event) {
             event.preventDefault();
-            engine.start(document.getElementById('browser').value);
+            engine.init(document.getElementById('browser').value);
         });
 
         const stopBtn = document.getElementById('stopDriver');

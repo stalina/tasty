@@ -5,7 +5,12 @@ var webdriver = require('selenium-webdriver'),
     until = webdriver.until,
     driver;
 
-exports.start = function start(browser) {
+exports.getDriver=function(){
+    return driver;
+};
+
+exports.init = function init(browser) {
+    console.log('init');
     driver = new webdriver.Builder().
     forBrowser(browser).
     build();
@@ -41,7 +46,3 @@ function VERIFIY_TITLE(title){
         alert(exception.message);
     });
 }
-
-exports.setDriver=function(mockDriver){
-    driver=mockDriver;
-};
