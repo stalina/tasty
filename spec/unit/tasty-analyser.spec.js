@@ -2,15 +2,20 @@ var analyser = require('../../app/tasty-analyser.js');
 
 describe("Tasty Analyser", function() {
 
-    beforeEach(function() {
-        analyser.addPluginFile('../../plugin/common-instructions.tty');
+    beforeAll(function(done) {
+        analyser.addPluginFile('./plugin/common-instructions.tty', done);
     });
 
-    it("Add tasty code file as plugin", function() {
-        expect(analyser.getTastyCode()['go to $url'][0]).toBe('driver.get($url)');
+
+    it("Add tasty code file as plugin - go to - verify paramters", function() {
+        expect(analyser.getTastyCode()['go to $url'].parameters[0]).toBe('$url');
     });
 
-    it("Translate tasty code to selenium code", function() {
+    it("Add tasty code file as plugin - click on - verify codeLines", function() {
+        expect(analyser.getTastyCode()['click on $name'].codeLines[0]).toBe('driver.findElement(By.name($name)).click();');
+    });
+
+    it("Translate tasty code to selenium code - go to", function() {
         var toSeleniumCode = analyser.toSeleniumCode("go to http://www.google.fr");
         expect(toSeleniumCode).toBe('driver.get("http://www.google.fr")');
     });

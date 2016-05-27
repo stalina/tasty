@@ -1,3 +1,0 @@
-go to $url {
-    driver.get($url);
-}
