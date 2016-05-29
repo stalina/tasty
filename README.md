@@ -16,12 +16,4 @@ NodeJs is installed
 
 ## Run
 
-`npm start`
-
-OR
-
 `gulp`
-
-## Debug
-
-`npm run dev`

@@ -1,6 +1,4 @@
 var React = require('react');
-var Select = require('react-select');
-
 var Tasty = require('../lib/tastyEngine');
 
 

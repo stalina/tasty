@@ -1,7 +1,3 @@
-require('chromedriver');
-var webdriver = require('selenium-webdriver');
-var By = webdriver.By;
-var until = webdriver.until;
 var driver;
 
 module.exports = {

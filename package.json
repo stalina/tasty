@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "Application test tool made natural",
   "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "dev": "electron . --debug"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stalina/tasty.git"
@@ -17,7 +13,6 @@
   },
   "homepage": "https://github.com/stalina/tasty#readme",
   "devDependencies": {
-    "browserify": "^13.0.1",
     "chromedriver": "^2.21.2",
     "electron-prebuilt": "^1.0.1",
     "gulp": "^3.9.1",
@@ -30,17 +25,19 @@
     "jasmine-reporters": "^2.1.1",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
+    "json-loader": "^0.5.4",
+    "jsx-loader": "^0.13.2",
     "npm": "^3.9.0",
     "phantomjs-prebuilt": "^2.1.7",
     "requirejs": "^2.2.0",
     "selenium-webdriver": "^2.53.2",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "babel-preset-react": "^6.5.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.0.1",
     "bufferutil": "^1.2.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
