@@ -1,5 +1,5 @@
 var React = require('react');
-var Tasty = require('../lib/tastyEngine');
+var Tasty = require('../lib/tasty-engine');
 
 
 module.exports = React.createClass({
