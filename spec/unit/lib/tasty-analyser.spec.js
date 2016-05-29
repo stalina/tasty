@@ -1,4 +1,4 @@
-var analyser = require('../../app/tasty-analyser.js');
+var analyser = require('../../../app/lib/tasty-analyser.js');
 
 describe("Tasty Analyser", function() {
 

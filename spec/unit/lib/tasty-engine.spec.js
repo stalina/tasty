@@ -1,14 +1,13 @@
-var tasty = require('../../../app/lib/tastyEngine.js');
+var tasty = require('../../../app/lib/tasty-engine.js');
+ 
 describe("Tasty Engine", function() {
 
     beforeEach(function() {
-        tasty.init('phantomjs');
+        //tasty.init('phantomjs');
     });
 
-    it("GOTO go to the url", function() {
+    it("verify eval go to the url", function() {
         var driver = tasty.getDriver();
-        spyOn(driver, "get");
-        tasty.execute("driver.get('http://www.google.fr');");
-        expect(driver.get).toHaveBeenCalledWith('http://www.google.fr');
+        //spyOn(driver, "get");
     });
 });

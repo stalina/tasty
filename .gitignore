@@ -36,3 +36,6 @@ node_modules
 #Intellij files
 *.iml
 .idea
+
+#Mac File
+**.DS*
