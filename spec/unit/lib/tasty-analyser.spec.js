@@ -16,7 +16,7 @@ describe("Tasty Analyser", function() {
     });
 
     it("Translate tasty code to selenium code - go to", function() {
-        var toSeleniumCode = analyser.toSeleniumCode("go to http://www.google.fr");
-        expect(toSeleniumCode).toBe('driver.get("http://www.google.fr")');
+        var toSeleniumCode = analyser.toSeleniumCode(['go to http://www.google.fr']);
+        expect(toSeleniumCode).toBe("driver.get('http://www.google.fr');");
     });
 });
