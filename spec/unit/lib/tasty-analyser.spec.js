@@ -19,4 +19,12 @@ describe("Tasty Analyser", function() {
         var toSeleniumCode = analyser.toSeleniumCode(['go to http://www.google.fr']);
         expect(toSeleniumCode).toBe("driver.get('http://www.google.fr');");
     });
+
+    it("Translate tasty code to selenium code - verify", function() {
+        var toSeleniumCode = analyser.toSeleniumCode(['verify that myField is myValue']);
+        expect(toSeleniumCode).toBe("var element = driver.findElement(By.name('myField'));\n"+
+                                    "element.getText().then(function(text) {\n"+
+                                    "expect(text).toBe('myValue');\n"+
+                                    "});");
+    });
 });

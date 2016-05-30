@@ -70,16 +70,17 @@ _extractTastyCode=function(fileLinesArray){
     var currentParameters;
     var currentCodeLines = [];
     var currentRegexMatcher;
+    var instructionStarted
 
     for(var i=0;i<fileLinesArray.length;i++){
         var line = fileLinesArray[i].trim();
 
-        if(line.endsWith('{')){
-            currentInstruction = line.substring(0, line.length-1).trim();
+        if(line.endsWith('*{')){
+            currentInstruction = line.substring(0, line.length-2).trim();
             currentParameters = currentInstruction.match(/\$\w*/gi);
             currentRegexMatcher = '^' + currentInstruction.replace(new RegExp('\\'+currentParameters.join('|\\'), 'g'), '(.*)');
             currentCodeLines = [];
-        }else if(line.startsWith('}')){
+        }else if(line.startsWith('}*')){
             instructions[currentInstruction] = {
                 'parameters' : currentParameters,
                 'codeLines'  : currentCodeLines,
